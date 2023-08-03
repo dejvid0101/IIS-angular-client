@@ -29,7 +29,6 @@ return this.http.post(apiUrl2,body2,{responseType:'text'})
           const apiUrl = 'http://localhost:8080/api/getCitiesRestricted?temp=11'; 
           const headers = new HttpHeaders({'Authorization': 'Bearer '+token});
       
-          //not nested right
           return this.http.post(apiUrl,{},{headers: headers,responseType:'text'});
       
       }
