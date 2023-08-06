@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Basic HTML Table</title>
-</head>
-<body>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Temp</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Zagreb</td>
-                <td>{{temps[0]}}</td>
-            </tr>
-            <tr>
-                <td>Grad 2</td>
-                <td>{{temps[1]}}</td>
-            </tr>
-            <tr>
-                <td>Mike Johnson</td>
-                <td>40</td>
-                <td>Paris</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+<p-table [value]="temps" [tableStyle]="{ 'min-width': '50rem' }">
+    
+    <ng-template pTemplate="header">
+        
+        <tr>
+            <th>Trenutne temperature po gradovima</th>
+            <p-progressSpinner *ngIf="temps.length==0"></p-progressSpinner>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-temp>
+        <tr>
+            <td>{{cities[temps.indexOf(temp)]}}</td>
+            <td>{{ temp }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Header" [(visible)]="unauthorized" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Greška</span>
+    </ng-template>
+    <p>Unesen je krivi kod.</p>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="unauthorized = false" label="Zatvori" styleClass="p-button-text p-button-danger"></p-button>
+    </ng-template>
+</p-dialog>
 

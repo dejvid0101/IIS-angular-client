@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getToken(): Observable<any> {
+  getToken(key:string): Observable<any> {
 
     //get token from here on
     const apiUrl2 = 'http://localhost:8080/api/generateToken';
@@ -17,8 +17,8 @@ export class DataService {
     const body2 = new HttpParams()
     .append("user", "fefe")
 
-    //key required by endpoint
-    .append("key", "12345678900000000000000000000000000000000000000000000000000");
+    //key required by endpoint passed as parameter from component
+    .append("key", key);
 return this.http.post(apiUrl2,body2,{responseType:'text'})
     
   }

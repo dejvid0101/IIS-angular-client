@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ViewCitiesComponent } from 'src/shared/view-cities/view-cities.component'
 import { HttpClientModule } from '@angular/common/http';
 import { CitiesTempComponent } from './view-cities/cities-temp/cities-temp.component';
-
+import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextModule } from 'primeng/inputtext';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -12,7 +17,13 @@ import { CitiesTempComponent } from './view-cities/cities-temp/cities-temp.compo
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule,
+    ProgressSpinnerModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    FormsModule
   ],
   exports:[
     ViewCitiesComponent

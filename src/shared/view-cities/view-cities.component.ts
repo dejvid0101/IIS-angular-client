@@ -10,16 +10,19 @@ import { parseString } from 'xml2js';
 })
 export class ViewCitiesComponent {
 
+  //set to true if code is incorrect according to server
   error401:boolean=false;
 
   public temps:string[]=[];
 
-  constructor(private dataService: DataService) { 
+  inputCode:string="";
 
-    setInterval(()=>console.log("401: "+this.error401),1000);
+  constructor(private dataService: DataService) {
+  }
 
+  makeRequest(){
     //fetch cities with auth token after fetching with getToken
-    this.dataService.getToken().pipe(
+    this.dataService.getToken(this.inputCode).pipe(
       switchMap((resToken) => this.dataService.getCities(resToken))
     ).subscribe(
       (resCities) => {
@@ -49,10 +52,6 @@ export class ViewCitiesComponent {
         console.error('Error fetching data:', error);
       }
     );
-
-    
   }
-
-  
 
 }

@@ -9,8 +9,13 @@ export class CitiesTempComponent {
 
 @Input() temps:string[]=[];
 
+//to show/hide error dialog
+@Input() unauthorized:boolean=false;
+
+public cities=['Zagreb (HR)','Hannover (DE)','Sheffield (UK)','Linz (AT)','Plovdiv (BG)','Malaga (ES)','Aalborg (DK)', 'Innsbruck (AT)', 'Milano (IT)', 'Craiova (RO)']
+
 constructor(){
-  setInterval(()=>console.log(this.temps),1000);
+  console.log(this.temps)
 }
 
 }

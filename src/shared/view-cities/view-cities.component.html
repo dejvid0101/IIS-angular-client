@@ -1,4 +1,4 @@
-<label>Key: </label>
-<input>
-<button (click)="1+8"></button>
-<cities-temp [temps]="temps"></cities-temp>
+<label>Lozinka za pristup: </label>
+<input pInputText [(ngModel)]="inputCode" type="text" />
+<p-button (click)="makeRequest()">Zatraži podatke</p-button>
+<cities-temp [temps]="temps" [unauthorized]="error401"></cities-temp>
